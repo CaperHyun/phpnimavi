@@ -1,106 +1,211 @@
 /* PHP Programming Exercises - Pink Theme Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 body {
-    font-family: "Nexa", "Arial", sans-serif;
-    background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 50%, #ff91a4 100%);
-    color: #2d3436;
-    margin: 0;
-    padding: 20px;
-    line-height: 1.6;
-    min-height: 100vh;
+font-family: "Nexa", "Arial", sans-serif;
+background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 50%, #ff91a4 100%);
+color: #2d3436;
+margin: 0;
+padding: 20px;
+line-height: 1.6;
+min-height: 100vh;
 }
 
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
-    backdrop-filter: blur(10px);
+max-width: 900px;
+margin: 0 auto;
+background-color: rgba(255, 255, 255, 0.95);
+padding: 40px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+backdrop-filter: blur(10px);
 }
 
 h1 {
-    text-align: center;
-    color: #ff1493;
-    font-weight: 700;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.3);
-    border-bottom: 3px solid #ff69b4;
-    padding-bottom: 15px;
+text-align: center;
+color: #ff1493;
+font-weight: 700;
+font-size: 2.5em;
+margin-bottom: 30px;
+text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.3);
+border-bottom: 3px solid #ff69b4;
+padding-bottom: 15px;
 }
 
 h2 {
-    color: #c71585;
-    font-weight: 600;
-    font-size: 1.4em;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    padding: 10px 15px;
-    background: linear-gradient(90deg, #ffc0cb, #ffb6c1);
-    border-radius: 10px;
-    border-left: 5px solid #ff69b4;
+color: #c71585;
+font-weight: 600;
+font-size: 1.4em;
+margin-top: 30px;
+margin-bottom: 15px;
+padding: 10px 15px;
+background: linear-gradient(90deg, #ffc0cb, #ffb6c1);
+border-radius: 10px;
+border-left: 5px solid #ff69b4;
 }
 
 .exercise {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid #ffb6c1;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+background-color: rgba(255, 255, 255, 0.8);
+border: 2px solid #ffb6c1;
+border-radius: 15px;
+padding: 20px;
+margin-bottom: 25px;
+box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .exercise:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
 }
 
 .output {
-    background: linear-gradient(135deg, #fff0f5, #ffe4e1);
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 4px solid #ff69b4;
-    margin: 10px 0;
-    font-family: "Nexa", monospace;
-    font-weight: 400;
+background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+padding: 15px;
+border-radius: 10px;
+border-left: 4px solid #ff69b4;
+margin: 10px 0;
+font-family: "Nexa", monospace;
+font-weight: 400;
 }
 
 .highlight {
-    background-color: #ffc0cb;
-    padding: 8px;
-    border-radius: 6px;
-    font-weight: 600;
-    color: #8b008b;
-    margin: 5px 0;
+background-color: #ffc0cb;
+padding: 8px;
+border-radius: 6px;
+font-weight: 600;
+color: #8b008b;
+margin: 5px 0;
 }
 
 .calculation {
-    background-color: #ffe4e1;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 5px 0;
-    border-left: 3px solid #ff69b4;
+background-color: #ffe4e1;
+padding: 10px;
+border-radius: 8px;
+margin: 5px 0;
+border-left: 3px solid #ff69b4;
 }
 
+/* 🌷 FORM & BUTTON STYLES 🌷 */
+form {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 10px;
+background-color: #fffafc;
+padding: 12px 15px;
+border-radius: 10px;
+border: 1px solid #ffd6e7;
+margin-bottom: 10px;
+box-shadow: 0 3px 6px rgba(255, 182, 193, 0.15);
+}
+
+form label {
+font-weight: 600;
+color: #c71585;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+form label::before {
+content: "🌸";
+display: inline-block;
+font-size: 1.1em;
+color: #ff69b4;
+transition: transform 0.3s ease;
+}
+
+form label:hover::before {
+transform: rotate(20deg) scale(1.1);
+}
+
+form input[type="text"],
+form input[type="number"] {
+padding: 8px 12px;
+border: 2px solid #ffb6c1;
+border-radius: 8px;
+outline: none;
+transition: all 0.3s ease;
+font-family: "Nexa", sans-serif;
+background-color: #fffafc;
+color: #8b008b;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+border-color: #ff69b4;
+box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+background-color: #fff0f6;
+}
+
+form input[type="submit"] {
+background: linear-gradient(90deg, #ff69b4, #ff1493);
+color: #fff;
+border: none;
+border-radius: 8px;
+padding: 8px 16px;
+cursor: pointer;
+font-weight: bold;
+font-family: "Nexa", sans-serif;
+transition: all 0.3s ease;
+margin-top: 5px;
+}
+
+form input[type="submit"]:hover {
+background: linear-gradient(90deg, #ff85b4, #ff3ba3);
+box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+transform: scale(1.05);
+}
+
+form input[type="submit"]:active {
+transform: scale(0.98);
+}
+
+/* 💖 FORM DECORATIONS FOR SPECIFIC EXERCISES */
+.exercise h2::before {
+margin-right: 6px;
+}
+
+.exercise:nth-child(2) h2::before { content: "➕"; }
+.exercise:nth-child(3) h2::before { content: "📐"; }
+.exercise:nth-child(4) h2::before { content: "🌡️"; }
+.exercise:nth-child(5) h2::before { content: "🔄"; }
+.exercise:nth-child(6) h2::before { content: "💰"; }
+.exercise:nth-child(7) h2::before { content: "⚖️"; }
+.exercise:nth-child(8) h2::before { content: "📝"; }
+.exercise:nth-child(9) h2::before { content: "🏦"; }
+.exercise:nth-child(10) h2::before { content: "📊"; }
+.exercise:nth-child(11) h2::before { content: "💱"; }
+.exercise:nth-child(12) h2::before { content: "🚗"; }
+
+/* 🌸 RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-        margin: 10px;
-    }
-    
-    h1 {
-        font-size: 2em;
-    }
-    
-    h2 {
-        font-size: 1.2em;
-    }
+.container {
+padding: 20px;
+margin: 10px;
+}
+
+h1 {
+font-size: 2em;
+}
+
+h2 {
+font-size: 1.2em;
+}
+
+form {
+flex-direction: column;
+align-items: flex-start;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="submit"] {
+width: 100%;
+}
 }
