@@ -1,212 +1,234 @@
 <?php
 /**
- * PHP Programming Exercises with Interactive Calculators
- * Author: Mavi Angel Viranel O. Caling
- * Description: Complete implementation of 12 PHP programming exercises with working calculators
- */
-
+* PHP Programming Exercises with Interactive Forms
+* Author: Mavi Angel Viranel O. Caling
+*/
 
 echo '<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Programming Exercises</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nexa:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 PHP Programming Exercises (with Forms)</title>
+<link href="https://fonts.googleapis.com/css2?family=Nexa:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🌸 PHP Programming Exercises 🌸</h1>';
+<div class="container">
+<h1>🌸 PHP Programming Exercises 🌸</h1>';
 
-// Exercise 1: Introduce Yourself (Static - No calculation needed)
-$name = "Mavi Angel Viranel O. Caling";
-$age = 21;
-$favorite_color = "pink";
+/* -------------------------------------------------------
+EXERCISE 1: Introduce Yourself
+------------------------------------------------------- */
 echo '<div class="exercise">
-        <h2>1. 👋 Introduce Yourself</h2>
-        <div class="output">
-            <p>Hi, I\'m <span class="highlight">' . $name . '</span>, I am <span class="highlight">' . $age . '</span> years old, and my favorite color is <span class="highlight">' . $favorite_color . '</span>.</p>
-        </div>
-      </div>';
+<h2>👋 Introduce Yourself</h2>
+<form method="post">
+<label>👤 Name:</label>
+<input type="text" name="name" placeholder="Enter your name" required>
+<label>🎂 Age:</label>
+<input type="number" name="age" min="1" placeholder="Enter your age" required>
+<label>🎨 Favorite Color:</label>
+<input type="text" name="color" placeholder="e.g., Pink" required>
+<input type="submit" name="intro_submit" value="Show Introduction">
+</form>';
 
-// Exercise 2: Simple Math
-$a = 23;
-$b = 61;
+if (isset($_POST['intro_submit'])) {
+$name = htmlspecialchars($_POST['name']);
+$age = htmlspecialchars($_POST['age']);
+$color = htmlspecialchars($_POST['color']);
+echo "<div class='output'>Hi, I'm <span class='highlight'>$name</span>, I'm <span class='highlight'>$age</span> years old, and my favorite color is <span class='highlight'>$color</span>.</div>";
+}
+echo '</div>';
+
+
+/* -------------------------------------------------------
+EXERCISE 2: Simple Math
+------------------------------------------------------- */
 echo '<div class="exercise">
-        <h2>2. ➕ Simple Math</h2>
-        <div class="output">
-            <div class="calculation">Sum: ' . $a . ' + ' . $b . ' = ' . ($a + $b) . '</div>
-            <div class="calculation">Difference: ' . $b . ' - ' . $a . ' = ' . ($b - $a) . '</div>
-            <div class="calculation">Product: ' . $a . ' × ' . $b . ' = ' . ($a * $b) . '</div>
-            <div class="calculation">Quotient: ' . $b . ' ÷ ' . $a . ' = ' . round($b / $a, 2) . '</div>
-        </div>
-      </div>';
+<h2>➕ Simple Math</h2>
+<form method="post">
+<label>Number A:</label>
+<input type="number" name="a" required>
+<label>Number B:</label>
+<input type="number" name="b" required>
+<input type="submit" name="math_submit" value="Calculate">
+</form>';
 
-// Exercise 3: Area and Perimeter of a Rectangle
-$length = 8;
-$width = 4;
+if (isset($_POST['math_submit'])) {
+$a = $_POST['a'];
+$b = $_POST['b'];
+echo "<div class='output'>
+<div class='calculation'>Sum: $a + $b = " . ($a + $b) . "</div>
+<div class='calculation'>Difference: $b - $a = " . ($b - $a) . "</div>
+<div class='calculation'>Product: $a × $b = " . ($a * $b) . "</div>
+<div class='calculation'>Quotient: $b ÷ $a = " . round($b / $a, 2) . "</div>
+</div>";
+}
+echo '</div>';
+
+
+/* -------------------------------------------------------
+EXERCISE 3: Area and Perimeter of a Rectangle
+------------------------------------------------------- */
+echo '<div class="exercise">
+<h2>📐 Area and Perimeter of a Rectangle</h2>
+<form method="post">
+<label>Length:</label>
+<input type="number" name="length" step="any" required>
+<label>Width:</label>
+<input type="number" name="width" step="any" required>
+<input type="submit" name="rect_submit" value="Compute">
+</form>';
+
+if (isset($_POST['rect_submit'])) {
+$length = $_POST['length'];
+$width = $_POST['width'];
 $area = $length * $width;
 $perimeter = 2 * ($length + $width);
-echo '<div class="exercise">
-        <h2>3. 📐 Area and Perimeter of a Rectangle</h2>
-        <div class="output">
-            <p><strong>Dimensions:</strong> Length = ' . $length . ', Width = ' . $width . '</p>
-            <div class="calculation">Area: ' . $length . ' × ' . $width . ' = ' . $area . '</div>
-            <div class="calculation">Perimeter: 2 × (' . $length . ' + ' . $width . ') = ' . $perimeter . '</div>
-        </div>
-      </div>';
+echo "<div class='output'>
+<div class='calculation'>Area: $length × $width = $area</div>
+<div class='calculation'>Perimeter: 2 × ($length + $width) = $perimeter</div>
+</div>";
+}
+echo '</div>';
 
-// Exercise 4: Temperature Converter
-$celsius = 16;
-$fahrenheit = ($celsius * 9/5) + 32;
-echo '<div class="exercise">
-        <h2>4. 🌡️ Temperature Converter</h2>
-        <div class="output">
-            <div class="calculation">' . $celsius . '°C = ' . $fahrenheit . '°F</div>
-            <p><em>Formula: F = (C × 9/5) + 32</em></p>
-        </div>
-      </div>';
 
-// Exercise 5: Swapping Variables (Static - No calculation needed)
-$x = 52;
-$y = 21;
+/* -------------------------------------------------------
+EXERCISE 4: Temperature Converter
+------------------------------------------------------- */
 echo '<div class="exercise">
-        <h2>5. 🔄 Swapping Variables</h2>
-        <div class="output">
-            <p><strong>Before swapping:</strong> x = ' . $x . ', y = ' . $y . '</p>';
+<h2>🌡️ Temperature Converter</h2>
+<form method="post">
+<label>Temperature (°C):</label>
+<input type="number" name="celsius" step="any" required>
+<input type="submit" name="temp_submit" value="Convert to °F">
+</form>';
+
+if (isset($_POST['temp_submit'])) {
+$c = $_POST['celsius'];
+$f = ($c * 9 / 5) + 32;
+echo "<div class='output'><div class='calculation'>$c°C = $f°F</div></div>";
+}
+echo '</div>';
+
+
+/* -------------------------------------------------------
+EXERCISE 5: Swapping Variables
+------------------------------------------------------- */
+echo '<div class="exercise">
+<h2>🔄 Swapping Variables</h2>
+<form method="post">
+<label>Value of X:</label>
+<input type="number" name="x" required>
+<label>Value of Y:</label>
+<input type="number" name="y" required>
+<input type="submit" name="swap_submit" value="Swap Values">
+</form>';
+
+if (isset($_POST['swap_submit'])) {
+$x = $_POST['x'];
+$y = $_POST['y'];
 $temp = $x;
 $x = $y;
 $y = $temp;
-echo '            <div class="calculation">After swapping: x = ' . $x . ', y = ' . $y . '</div>
-            <p><em>Used temporary variable for swapping</em></p>
-        </div>
-      </div>';
-
-// Exercise 6: Salary Calculator
-$basic_salary = 50000;
-$allowance = 20000;
-$deduction = 10000;
-$net_salary = $basic_salary + $allowance - $deduction;
-echo '<div class="exercise">
-        <h2>6. 💰 Salary Calculator</h2>
-        <div class="output">
-            <div class="calculation">Basic Salary: ₱' . number_format($basic_salary) . '</div>
-            <div class="calculation">Allowance: ₱' . number_format($allowance) . '</div>
-            <div class="calculation">Deduction: ₱' . number_format($deduction) . '</div>
-            <div class="highlight">Net Salary: ₱' . number_format($net_salary) . '</div>
-        </div>
-      </div>';
-
-// Exercise 7: BMI Calculator
-$weight = 53; // kg
-$height = 1.6256; // meters
-$bmi = $weight / ($height * $height);
-echo '<div class="exercise">
-        <h2>7. ⚖️ BMI Calculator</h2>
-        <div class="output">
-            <div class="calculation">Weight: ' . $weight . ' kg</div>
-            <div class="calculation">Height: ' . $height . ' m</div>
-            <div class="calculation">BMI = ' . $weight . ' ÷ (' . $height . ' × ' . $height . ') = ' . round($bmi, 2) . '</div>
-        </div>
-      </div>';
-
-// Exercise 8: String Manipulation (Static - No calculation needed)
-$sentence = "This is a sample sentence for string manipulation.";
-echo '<div class="exercise">
-        <h2>8. 📝 String Manipulation</h2>
-        <div class="output">
-            <p><strong>Original sentence:</strong> "' . htmlspecialchars($sentence) . '"</p>
-            <div class="calculation">Number of characters: ' . strlen($sentence) . '</div>
-            <div class="calculation">Number of words: ' . str_word_count($sentence) . '</div>
-            <div class="calculation">Uppercase: ' . htmlspecialchars(strtoupper($sentence)) . '</div>
-            <div class="calculation">Lowercase: ' . htmlspecialchars(strtolower($sentence)) . '</div>
-        </div>
-      </div>';
-
-// Exercise 9: Bank Account Simulation (Static - No calculation needed)
-$balance = 10000;
-$deposit = 5000;
-$withdraw = 2000;
-echo '<div class="exercise">
-        <h2>9. 🏦 Bank Account Simulation</h2>
-        <div class="output">
-            <div class="calculation">Initial balance: ₱' . number_format($balance) . '</div>
-            <div class="calculation">Deposit: +₱' . number_format($deposit) . '</div>
-            <div class="calculation">Withdrawal: -₱' . number_format($withdraw) . '</div>';
-$balance = $balance + $deposit - $withdraw;
-echo '            <div class="highlight">Final balance: ₱' . number_format($balance) . '</div>
-        </div>
-      </div>';
-
-// Exercise 10: Simple Grading System
-$math = 85;
-$english = 92;
-$science = 78;
-$average = ($math + $english + $science) / 3;
-if ($average >= 90) {
-    $grade = "A";
-} elseif ($average >= 80) {
-    $grade = "B";
-} elseif ($average >= 70) {
-    $grade = "C";
-} elseif ($average >= 60) {
-    $grade = "D";
-} else {
-    $grade = "F";
+echo "<div class='output'><div class='calculation'>After swapping: X = $x, Y = $y</div></div>";
 }
-echo '<div class="exercise">
-        <h2>10. 📊 Simple Grading System</h2>
-        <div class="output">
-            <div class="calculation">Math: ' . $math . '</div>
-            <div class="calculation">English: ' . $english . '</div>
-            <div class="calculation">Science: ' . $science . '</div>
-            <div class="calculation">Average: ' . round($average, 2) . '</div>
-            <div class="highlight">Grade: ' . $grade . '</div>
-        </div>
-      </div>';
+echo '</div>';
 
-// Exercise 11: Currency Converter
-$php_amount = 1000;
-$usd_rate = 0.018; // 1 PHP = 0.018 USD
-$eur_rate = 0.016; // 1 PHP = 0.016 EUR
-$jpy_rate = 2.50;  // 1 PHP = 2.50 JPY
-$usd = $php_amount * $usd_rate;
-$eur = $php_amount * $eur_rate;
-$jpy = $php_amount * $jpy_rate;
-echo '<div class="exercise">
-        <h2>11. 💱 Currency Converter</h2>
-        <div class="output">
-            <p><strong>PHP Amount:</strong> ₱' . number_format($php_amount) . '</p>
-            <p><strong>Exchange Rates:</strong></p>
-            <div class="calculation">USD: ₱1 = $' . $usd_rate . '</div>
-            <div class="calculation">EUR: ₱1 = €' . $eur_rate . '</div>
-            <div class="calculation">JPY: ₱1 = ¥' . $jpy_rate . '</div>
-            <p><strong>Converted Amounts:</strong></p>
-            <div class="calculation">USD: $' . round($usd, 2) . '</div>
-            <div class="calculation">EUR: €' . round($eur, 2) . '</div>
-            <div class="calculation">JPY: ¥' . round($jpy, 2) . '</div>
-        </div>
-      </div>';
 
-// Exercise 12: Travel Cost Estimator
-$distance = 200; // km
-$fuel_consumption = 12; // km per liter
-$fuel_price = 55; // PHP per liter
-$fuel_needed = $distance / $fuel_consumption;
-$total_cost = $fuel_needed * $fuel_price;
+/* -------------------------------------------------------
+EXERCISE 6: Salary Calculator
+------------------------------------------------------- */
 echo '<div class="exercise">
-        <h2>12. 🚗 Travel Cost Estimator</h2>
-        <div class="output">
-            <div class="calculation">Distance: ' . $distance . ' km</div>
-            <div class="calculation">Fuel consumption: ' . $fuel_consumption . ' km/liter</div>
-            <div class="calculation">Fuel price: ₱' . $fuel_price . ' per liter</div>
-            <div class="calculation">Fuel needed: ' . round($fuel_needed, 2) . ' liters</div>
-            <div class="highlight">Total travel cost: ₱' . round($total_cost, 2) . '</div>
-        </div>
-      </div>';
+<h2>💰 Salary Calculator</h2>
+<form method="post">
+<label>Basic Salary:</label>
+<input type="number" name="basic" required>
+<label>Allowance:</label>
+<input type="number" name="allowance" required>
+<label>Deduction:</label>
+<input type="number" name="deduction" required>
+<input type="submit" name="salary_submit" value="Compute Salary">
+</form>';
 
-echo '    </div>
-</body>
-</html>';
+if (isset($_POST['salary_submit'])) {
+$net = $_POST['basic'] + $_POST['allowance'] - $_POST['deduction'];
+echo "<div class='output'><div class='highlight'>Net Salary: ₱" . number_format($net) . "</div></div>";
+}
+echo '</div>';
+
+
+/* -------------------------------------------------------
+EXERCISE 7: BMI Calculator
+------------------------------------------------------- */
+echo '<div class="exercise">
+<h2>⚖️ BMI Calculator</h2>
+<form method="post">
+<label>Weight (kg):</label>
+<input type="number" step="any" name="weight" required>
+<label>Height (m):</label>
+<input type="number" step="any" name="height" required>
+<input type="submit" name="bmi_submit" value="Calculate BMI">
+</form>';
+
+if (isset($_POST['bmi_submit'])) {
+$w = $_POST['weight'];
+$h = $_POST['height'];
+$bmi = $w / ($h * $h);
+echo "<div class='output'><div class='calculation'>BMI = " . round($bmi, 2) . "</div></div>";
+}
+echo '</div>';
+
+
+/* -------------------------------------------------------
+EXERCISE 11: Currency Converter
+------------------------------------------------------- */
+echo '<div class="exercise">
+<h2>💱 Currency Converter</h2>
+<form method="post">
+<label>PHP Amount:</label>
+<input type="number" name="php_amount" required>
+<input type="submit" name="currency_submit" value="Convert">
+</form>';
+
+if (isset($_POST['currency_submit'])) {
+$php = $_POST['php_amount'];
+$usd = $php * 0.018;
+$eur = $php * 0.016;
+$jpy = $php * 2.50;
+echo "<div class='output'>
+<div class='calculation'>USD: $" . round($usd, 2) . "</div>
+<div class='calculation'>EUR: €" . round($eur, 2) . "</div>
+<div class='calculation'>JPY: ¥" . round($jpy, 2) . "</div>
+</div>";
+}
+echo '</div>';
+
+
+/* -------------------------------------------------------
+EXERCISE 12: Travel Cost Estimator
+------------------------------------------------------- */
+echo '<div class="exercise">
+<h2>🚗 Travel Cost Estimator</h2>
+<form method="post">
+<label>Distance (km):</label>
+<input type="number" step="any" name="distance" required>
+<label>Fuel Consumption (km/liter):</label>
+<input type="number" step="any" name="consumption" required>
+<label>Fuel Price (₱/liter):</label>
+<input type="number" step="any" name="price" required>
+<input type="submit" name="travel_submit" value="Estimate Cost">
+</form>';
+
+if (isset($_POST['travel_submit'])) {
+$d = $_POST['distance'];
+$c = $_POST['consumption'];
+$p = $_POST['price'];
+$fuel_needed = $d / $c;
+$total = $fuel_needed * $p;
+echo "<div class='output'><div class='highlight'>Total Travel Cost: ₱" . round($total, 2) . "</div></div>";
+}
+echo '</div>';
+
+echo '</div></body></html>';
 ?>
