@@ -1,0 +1,106 @@
+/* General Page Styling */
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fef6fa; /* soft pink background */
+    margin: 0;
+    padding: 0;
+    color: #444;
+}
+
+.container {
+    width: 80%;
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(255, 182, 193, 0.3);
+}
+
+/* Titles */
+h2 {
+    color: #ff8fb1;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.button,
+input[type="submit"] {
+    background: #ffb6c9;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.button:hover,
+input[type="submit"]:hover {
+    background: #ff8fb1;
+}
+
+/* Add Button */
+.add-btn {
+    display: inline-block;
+    background: #ffc8dd;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th {
+    background: #ffdde7;
+    padding: 12px;
+    color: #444;
+    border-bottom: 2px solid #ffb6c9;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ffd1dc;
+}
+
+table tr:hover {
+    background: #fff1f6;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    border: 2px solid #ffd6e4;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: #ff8fb1;
+}
+
+/* Action Links */
+.action-link {
+    color: #ff8fb1;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
